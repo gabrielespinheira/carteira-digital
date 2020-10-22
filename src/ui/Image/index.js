@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 import {
   space,
@@ -5,7 +6,7 @@ import {
   flexbox,
   color,
   typography,
-  border
+  border,
 } from 'styled-system'
 
 const ImageStyled = styled('img')`

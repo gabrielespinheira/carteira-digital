@@ -6,7 +6,7 @@ import {
   layout,
   color,
   typography,
-  border
+  border,
 } from 'styled-system'
 import { FiArrowLeft } from 'react-icons/fi'
 import theme from 'styles/theme'
@@ -24,6 +24,8 @@ const NavBackStyled = styled('button')`
 `
 
 const NavBack = ({ onClick, hidden = false, children, ...props }) => {
+  const stateStyle = hidden ? { visibility: 'hidden' } : {}
+
   return (
     <NavBackStyled
       width="50px"
@@ -34,7 +36,7 @@ const NavBack = ({ onClick, hidden = false, children, ...props }) => {
       borderColor="gray"
       bg="transparent"
       onClick={onClick}
-      style={hidden ? { visibility: 'hidden' } : {}}
+      style={stateStyle}
       {...props}
     >
       <FiArrowLeft size={24} color={theme.colors.black} />

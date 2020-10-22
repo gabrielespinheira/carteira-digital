@@ -7,6 +7,8 @@ import { Box } from 'ui'
 const BulletElement = styled('div')(flexbox, space, layout, color, border)
 
 const Bullets = ({ quantity, active, hidden = false, ...props }) => {
+  const stateStyle = hidden ? { visibility: 'hidden' } : {}
+
   if (!quantity || !active) {
     return null
   }
@@ -29,13 +31,7 @@ const Bullets = ({ quantity, active, hidden = false, ...props }) => {
   }
 
   return (
-    <Box
-      flexDirection="row"
-      ml="auto"
-      mr="auto"
-      style={hidden ? { visibility: 'hidden' } : {}}
-      {...props}
-    >
+    <Box flexDirection="row" ml="auto" mr="auto" style={stateStyle} {...props}>
       {options}
     </Box>
   )

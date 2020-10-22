@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Vector from '../../assets/img/logo.svg'
+import { ReactComponent as Vector } from 'assets/img/logo.svg'
 import { Box } from 'ui'
 
 const Logo = ({ ...props }) => {

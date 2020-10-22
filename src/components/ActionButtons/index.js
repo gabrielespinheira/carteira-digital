@@ -1,17 +1,17 @@
 import React from 'react'
-import { useRouter } from 'next/router'
+import { useHistory } from 'react-router-dom'
 
 import { Box, Button } from 'ui'
 
 const ActionButtons = ({ onClickAdd, onClickRemove, hideAdd, hideRemove }) => {
-  const router = useRouter()
+  const history = useHistory()
 
   function handleAdd() {
-    router.push('/form/add')
+    history.push('/app/form/add')
   }
 
   function handleRemove() {
-    router.push('/form/remove')
+    history.push('/app/form/remove')
   }
 
   return (

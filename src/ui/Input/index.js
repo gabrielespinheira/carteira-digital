@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 import {
   space,
@@ -5,7 +6,7 @@ import {
   flexbox,
   color,
   typography,
-  border
+  border,
 } from 'styled-system'
 import { FiCircle, FiCheckCircle } from 'react-icons/fi'
 
@@ -35,7 +36,7 @@ const LabelStyled = styled('label')`
   }
 
   .checkmark .normal {
-    color: ${props => props.theme.colors.gray};
+    color: ${(props) => props.theme.colors.gray};
   }
 
   input:checked ~ .checkmark .normal {
@@ -44,12 +45,12 @@ const LabelStyled = styled('label')`
 
   input:checked ~ .checkmark .checked {
     display: block;
-    color: ${props => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
   }
 
   input:checked {
-    background: ${props => props.theme.colors.blue};
-    border-color: ${props => props.theme.colors.blue};
+    background: ${(props) => props.theme.colors.blue};
+    border-color: ${(props) => props.theme.colors.blue};
   }
 
   p {
@@ -61,7 +62,7 @@ const LabelStyled = styled('label')`
   }
 
   input:checked ~ p {
-    color: ${props => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
   }
 `
 

@@ -1,17 +1,17 @@
 import React from 'react'
-import { useRouter } from 'next/router'
+import { useHistory } from 'react-router-dom'
 
 import theme from 'styles/theme'
 import { Box, Title } from 'ui'
 
-const Tabs = ({}) => {
-  const router = useRouter()
-  const url = router.pathname
+const Tabs = () => {
+  const history = useHistory()
+  const url = window.location.pathname
 
   const tabs = [
     { name: 'Conta', slug: 'account' },
     { name: 'Histórico', slug: 'history' },
-    { name: 'Controle', slug: 'control' }
+    { name: 'Controle', slug: 'control' },
   ]
 
   return (
@@ -24,10 +24,10 @@ const Tabs = ({}) => {
       paddingBottom="sm"
       className="tabs"
     >
-      {tabs.map(tab => (
+      {tabs.map((tab) => (
         <button
           key={tab.slug}
-          onClick={() => router.push('/' + tab.slug)}
+          onClick={() => history.push('/app/' + tab.slug)}
           className={url.includes(tab.slug) ? 'active' : ''}
         >
           <Title

@@ -32,7 +32,7 @@ export function getTotalBalance(transactions) {
 export function getBankBalance(transactions) {
   return transactions
     .filter((tsx) => {
-      return tsx.type == 'bank' ? tsx : false
+      return tsx.type === 'bank' ? tsx : false
     })
     .map((tsx) => {
       return parseFloat(tsx.value)
@@ -43,7 +43,7 @@ export function getBankBalance(transactions) {
 export function getCardBalance(transactions) {
   return transactions
     .filter((tsx) => {
-      return tsx.type == 'card' ? tsx : false
+      return tsx.type === 'card' ? tsx : false
     })
     .map((tsx) => {
       return parseFloat(tsx.value)
@@ -54,7 +54,7 @@ export function getCardBalance(transactions) {
 export function getMoneyBalance(transactions) {
   return transactions
     .filter((tsx) => {
-      return tsx.type == 'money' ? tsx : false
+      return tsx.type === 'money' ? tsx : false
     })
     .map((tsx) => {
       return parseFloat(tsx.value)
