@@ -4,12 +4,12 @@
 - [x] splash screen
 - [x] add to home
 - [x] initial hooks
-- [] ui base elements
-- [] theme css
-- [ ] onboarding screen
-- [ ] account static screen
-- [ ] history static screen
-- [ ] control static screen
+- [x] ui base elements
+- [x] theme css
+- [x] onboarding screen
+- [x] account static screen
+- [x] history static screen
+- [x] control static screen
 - [ ] transactions sdk
 - [ ] cards sdk
 - [ ] banks sdk
