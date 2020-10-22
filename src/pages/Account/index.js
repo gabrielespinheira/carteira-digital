@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useSWR from 'swr'
+import cookie from 'js-cookie'
 
 import {
   getTotalBalance,
@@ -9,11 +10,12 @@ import {
 } from 'sdk'
 import { Layout, Content, Box, Text, BoxGray } from 'ui'
 import { Tabs, Topbar, Card, ActionButtons } from 'components'
+import { useData } from 'hooks'
 
 export default function Account() {
-  /* const { data: transactions } = useSWR(
-    `api/transactions/${cookie.get('userId')}`
-  ) */
+  const { data } = useSWR(`api/transactions/${cookie.get('user_id')}`)
+
+  console.log(data)
 
   /* const totalBalance = getTotalBalance(transactions)
   const bankBalance = getBankBalance(transactions)

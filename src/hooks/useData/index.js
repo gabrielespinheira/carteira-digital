@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react'
 import firebase from 'services/firebase'
 import 'firebase/auth'
+import cookie from 'js-cookie'
 
 import { useDB } from 'hooks/useDB'
 
@@ -16,7 +17,6 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     async function loadUser() {
       const storagedUser = JSON.parse(await localStorage.getItem('@app:user'))
-
       if (storagedUser) {
         setUser(storagedUser)
       }
@@ -29,6 +29,10 @@ export const DataProvider = ({ children }) => {
     async function saveUser() {
       try {
         await localStorage.setItem('@app:user', JSON.stringify(user))
+
+        if (user && typeof cookie.get('user_id') !== 'undefined') {
+          cookie.set('user_id', user.uid, { expires: 7 })
+        }
       } catch (err) {
         console.log(err)
       }
