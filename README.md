@@ -1,0 +1,29 @@
+## TODOLIST
+
+- [x] boot react project
+- [x] splash screen
+- [x] add to home
+- [x] initial hooks
+- [] ui base elements
+- [] theme css
+- [ ] onboarding screen
+- [ ] account static screen
+- [ ] history static screen
+- [ ] control static screen
+- [ ] transactions sdk
+- [ ] cards sdk
+- [ ] banks sdk
+- [ ] balance hooks
+- [ ] card & bank hooks
+- [ ] dynamic pages
+- [ ] logout action
+- [ ] form add \$
+  - [ ] money
+  - [ ] banks
+- [ ] form remove \$
+  - [ ] money
+  - [ ] banks
+  - [ ] cards
+- [ ] responsive
+- [ ] offline first
+- [ ] passcode launcher
