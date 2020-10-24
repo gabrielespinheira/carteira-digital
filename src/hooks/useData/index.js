@@ -10,6 +10,10 @@ const DataContext = createContext(null)
 
 export const DataProvider = ({ children }) => {
   const { db } = useDB()
+  const [rehydrate, setRehydrated] = usePersistedState(
+    '@app:rehydrate',
+    new Date().getTime()
+  )
   const [user, setUser] = usePersistedState('@app:user', {})
   const [transactions, setTransactions] = usePersistedState(
     '@app:transactions',
@@ -18,7 +22,12 @@ export const DataProvider = ({ children }) => {
   const [cards, setCards] = usePersistedState('@app:cards', [])
   const [banks, setBanks] = usePersistedState('@app:banks', [])
 
+  const auth = firebase.auth()
+  const provider = new firebase.auth.GoogleAuthProvider()
+
+  // load transactions, cards and banks
   useEffect(() => {
+    console.log('rehydrated')
     if (user?.uid) {
       async function loadTransactions() {
         const responseTransactions = await getTransactions(db, user.uid)
@@ -39,12 +48,10 @@ export const DataProvider = ({ children }) => {
       loadCards()
       loadBanks()
     }
-  }, [db, setBanks, setCards, setTransactions, user])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [db, user, rehydrate])
 
-  const auth = firebase.auth()
-  const provider = new firebase.auth.GoogleAuthProvider()
-
-  async function handleSignInGoogle() {
+  const handleSignInGoogle = async () => {
     const googleResponse = await auth.signInWithPopup(provider)
 
     if (!googleResponse || !googleResponse.user) {
@@ -61,27 +68,19 @@ export const DataProvider = ({ children }) => {
     await setUser(userAuth)
     const userRef = db.collection('users').doc(userAuth.uid)
 
-    const checkOnboarding = await userRef.get().then(async (doc) => {
-      if (!doc.exists) {
-        userAuth.onboarding = false
-
-        userRef.set(userAuth).then(() => {
-          return { success: true, redirect: '/onboarding/bank' }
-        })
+    return await userRef.get().then(async (doc) => {
+      if (doc.exists && doc.data() && doc.data().onboarding === true) {
+        return { success: true, redirect: '/app/account' }
       }
 
-      if (doc.data() && !doc.data().onboarding) {
+      userAuth.onboarding = false
+
+      userRef.set(userAuth).then(() => {
         return { success: true, redirect: '/onboarding/bank' }
-      }
+      })
 
-      return false
+      return { success: true, redirect: '/onboarding/bank' }
     })
-
-    if (checkOnboarding) {
-      return checkOnboarding
-    }
-
-    return { success: true, redirect: '/app/account' }
   }
 
   const handleLogout = async () => {
@@ -103,6 +102,7 @@ export const DataProvider = ({ children }) => {
         transactions,
         cards,
         banks,
+        setRehydrated,
       }}
     >
       {children}
