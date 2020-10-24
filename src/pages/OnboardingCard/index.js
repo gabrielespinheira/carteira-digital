@@ -73,6 +73,7 @@ const OnboardingCard = () => {
         </Box>
 
         <Input
+          type="number"
           title="Limite"
           mb="sm"
           onChange={(e) => setCardLimit(e.target.value)}
@@ -80,6 +81,7 @@ const OnboardingCard = () => {
         />
 
         <Input
+          type="number"
           title="Saldo inicial"
           onChange={(e) => setCardInitialValue(e.target.value)}
           value={cardInitialValue}

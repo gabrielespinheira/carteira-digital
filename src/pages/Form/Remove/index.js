@@ -82,6 +82,7 @@ const FormRemove = () => {
         </div>
 
         <Input
+          type="number"
           title="R$"
           mt="sm"
           mb="sm"

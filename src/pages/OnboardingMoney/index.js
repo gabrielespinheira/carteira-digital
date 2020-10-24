@@ -34,6 +34,7 @@ const OnboardingMoney = () => {
         </Title>
 
         <Input
+          type="number"
           title="R$"
           onChange={(e) => setMoney(e.target.value)}
           value={money}
