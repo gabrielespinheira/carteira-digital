@@ -24,6 +24,7 @@
   - [ ] padding on tabs
   - [ ] select style (ios)
   - [ ] cursor on hover buttons (desktop)
+  - [ ] input number for R\$
 - [ ] offline first
 - [ ] passcode launcher
 - [ ] control
