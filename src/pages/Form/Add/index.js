@@ -9,24 +9,29 @@ import { createTransaction } from 'sdk'
 const FormAdd = () => {
   const history = useHistory()
   const { db } = useDB()
-  const { user } = useData()
-  const banks = []
+  const { user, cards, banks, setRehydrated } = useData()
 
   const [description, setDescription] = useState('')
-  const [type, setType] = useState('money')
+  const [method, setMethod] = useState('money')
   const [value, setValue] = useState('')
+  const [type, setType] = useState('money')
 
-  function handleSubmit() {
-    if (!description || !value || !type) {
+  async function handleSubmit() {
+    if (!description || !value || !method) {
       return
     }
 
-    createTransaction(db, user.uid, {
-      type: type === 'money' ? 'money' : 'bank',
-      method: type,
+    const add = await createTransaction(db, user.uid, {
+      type,
+      method,
       value: Number(value),
       title: description ? description : 'Entrada',
     })
+
+    if (add) {
+      await setRehydrated(new Date().getTime())
+      history.push('/app/account')
+    }
   }
 
   return (
@@ -45,13 +50,28 @@ const FormAdd = () => {
           value={description}
         />
 
-        <select onChange={(e) => setType(e.target.value)}>
-          <option value="money">Dinheiro</option>
+        <select
+          onChange={(e) => {
+            setMethod(e.target.value)
+            setType(e.target[e.target.selectedIndex].attributes.type.value)
+          }}
+        >
+          <option type="money" value="money">
+            Dinheiro
+          </option>
           {banks &&
             banks.map((bank, key) => {
               return (
-                <option key={key} value={bank.name}>
+                <option key={key} type="bank" value={bank.name}>
                   {bank.name}
+                </option>
+              )
+            })}
+          {cards &&
+            cards.map((card, key) => {
+              return (
+                <option key={key} type="card" value={card.name}>
+                  {card.name}
                 </option>
               )
             })}

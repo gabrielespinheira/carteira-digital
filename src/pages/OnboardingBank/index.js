@@ -3,30 +3,32 @@ import { useHistory } from 'react-router-dom'
 
 import { Layout, Button, Title, Box, Bullets, Input } from 'ui'
 import { Header } from 'components'
-import { useData } from 'hooks'
+import { useData, usePersistedState } from 'hooks'
 
 const OnboardingBank = () => {
   const history = useHistory()
-  const { user, setUser } = useData()
+  const { handleLogout } = useData()
   const [bankName, setBankName] = useState('')
   const [bankInitialBalance, setBankInitialBalance] = useState('')
+  const [onboarding, setOnboarding] = usePersistedState('@app:onboarding', {})
 
-  function goBack() {
+  async function goBack() {
+    await handleLogout()
     return history.push('/')
   }
 
-  function goNext() {
+  async function goNext() {
     if (!bankName || !bankInitialBalance) {
       return
     }
 
-    setUser({ ...user, config: { bankName, bankInitialBalance } })
+    await setOnboarding({ ...onboarding, bankName, bankInitialBalance })
     history.push('/onboarding/card')
   }
 
   return (
     <Layout justifyContent="space-between" alignItems="center">
-      <Header clickNav={goBack} navHidden={false} />
+      <Header clickNav={goBack} navHidden={true} />
 
       <Box justifyContent="flex-start" width="100%">
         <Title mb="lg">

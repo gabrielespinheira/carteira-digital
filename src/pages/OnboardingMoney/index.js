@@ -3,30 +3,24 @@ import { useHistory } from 'react-router-dom'
 
 import { Layout, Button, Title, Box, Bullets, Input } from 'ui'
 import { Header } from 'components'
-import { useData } from 'hooks'
+import { usePersistedState } from 'hooks'
 
 const OnboardingMoney = () => {
   const history = useHistory()
-  const { user, setUser } = useData()
   const [money, setMoney] = useState('')
+  const [onboarding, setOnboarding] = usePersistedState('@app:onboarding', {})
 
   function goBack() {
-    history.push('/onboarding-card')
+    history.push('/onboarding/card')
   }
 
-  function goNext() {
+  async function goNext() {
     if (!money) {
       return
     }
 
-    setUser({
-      ...user,
-      config: {
-        ...user.config,
-        money,
-      },
-    })
-    history.push('/onboarding-finish')
+    await setOnboarding({ ...onboarding, money })
+    history.push('/onboarding/finish')
   }
 
   return (

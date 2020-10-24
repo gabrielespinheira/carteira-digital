@@ -9,26 +9,29 @@ import { createTransaction } from 'sdk'
 const FormRemove = () => {
   const history = useHistory()
   const { db } = useDB()
-  const { user } = useData()
-  const cards = []
-  const banks = []
+  const { user, banks, cards, setRehydrated } = useData()
 
   const [description, setDescription] = useState('')
-  const [type, setType] = useState('money')
+  const [method, setMethod] = useState('money')
   const [value, setValue] = useState('')
+  const [type, setType] = useState('')
 
-  function handleSubmit() {
-    console.log('yeah')
-    if (!description || !value || !type) {
+  async function handleSubmit() {
+    if (!description || !value || !method) {
       return
     }
 
-    /* createTransaction(db, user.uid, {
-      type: type === 'money' ? 'money' : 'bank',
-      method: type,
-      value: Number(value),
+    const remove = await createTransaction(db, user.uid, {
+      type,
+      method,
+      value: Number(0 - value),
       title: description ? description : 'Entrada',
-    }) */
+    })
+
+    if (remove) {
+      await setRehydrated(new Date().getTime())
+      history.push('/app/account')
+    }
   }
 
   return (
@@ -47,12 +50,19 @@ const FormRemove = () => {
           value={description}
         />
 
-        <select onChange={(e) => setType(e.target.value)}>
-          <option value="money">Dinheiro</option>
+        <select
+          onChange={(e) => {
+            setMethod(e.target.value)
+            setType(e.target[e.target.selectedIndex].attributes.type.value)
+          }}
+        >
+          <option type="money" value="money">
+            Dinheiro
+          </option>
           {banks &&
             banks.map((bank, key) => {
               return (
-                <option key={key} value={bank.name}>
+                <option key={key} type="bank" value={bank.name}>
                   {bank.name}
                 </option>
               )
@@ -60,7 +70,7 @@ const FormRemove = () => {
           {cards &&
             cards.map((card, key) => {
               return (
-                <option key={key} value={card.name}>
+                <option key={key} type="card" value={card.name}>
                   {card.name}
                 </option>
               )

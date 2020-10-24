@@ -3,63 +3,68 @@ import { useHistory } from 'react-router-dom'
 
 import { Layout, Button, Title, Box, Bullets } from 'ui'
 import { Header } from 'components'
-import { useData, useDB } from 'hooks'
+import { useData, useDB, usePersistedState } from 'hooks'
 import { createCard, createBank, createTransaction } from 'sdk'
 
 const OnboardingFinish = () => {
   const history = useHistory()
   const { db } = useDB()
-  const { user } = useData()
+  const { user, setRehydrated } = useData()
+  const [onboarding, setOnboarding] = usePersistedState('@app:onboarding', {})
 
   useEffect(() => {
-    const {
-      bankInitialBalance,
-      bankName,
-      cardCredit,
-      cardDebit,
-      cardInitialValue,
-      cardLimit,
-      cardName,
-      money,
-    } = user.config
+    async function inserts() {
+      if (!onboarding) {
+        return
+      }
 
-    createCard(db, user.uid, cardName, {
-      debit: cardDebit,
-      credit: cardCredit,
-      initialValue: cardInitialValue,
-      limit: cardLimit,
-      name: cardName,
-    })
+      const {
+        bankInitialBalance,
+        bankName,
+        cardCredit,
+        cardDebit,
+        cardInitialValue,
+        cardLimit,
+        cardName,
+        money,
+      } = onboarding
 
-    createBank(db, user.uid, bankName, {
-      initialValue: bankInitialBalance,
-      name: bankName,
-    })
+      await createCard(db, user.uid, cardName, {
+        debit: cardDebit,
+        credit: cardCredit,
+        initialValue: cardInitialValue,
+        limit: cardLimit,
+        name: cardName,
+      })
 
-    createTransaction(db, user.uid, {
-      type: 'bank',
-      method: bankName,
-      value: bankInitialBalance,
-      title: 'Saldo inicial banco',
-    })
+      await createBank(db, user.uid, bankName, {
+        initialValue: bankInitialBalance,
+        name: bankName,
+      })
 
-    createTransaction(db, user.uid, {
-      type: 'card',
-      method: cardName,
-      value: cardInitialValue,
-      title: 'Saldo inicial cartão',
-    })
+      await createTransaction(db, user.uid, {
+        type: 'out',
+        method: cardName,
+        value: 0 - cardInitialValue,
+        title: 'Saldo inicial cartão',
+      })
 
-    createTransaction(db, user.uid, {
-      value: money,
-      type: 'money',
-      method: 'Money',
-      title: 'Saldo inicial dinheiro',
-    })
+      await createTransaction(db, user.uid, {
+        value: money,
+        type: 'in',
+        method: 'Money',
+        title: 'Saldo inicial dinheiro',
+      })
 
-    // update onboarding status
-    db.collection('users').doc(user.uid).update({ onboarding: true })
-  }, [db, user])
+      // update onboarding status
+      await db.collection('users').doc(user.uid).update({ onboarding: true })
+
+      setOnboarding(false)
+      setRehydrated(new Date().getTime())
+    }
+
+    inserts()
+  }, [db, onboarding, setOnboarding, setRehydrated, user])
 
   function goBack() {
     history.push('/onboarding/money')
