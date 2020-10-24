@@ -43,7 +43,7 @@ const OnboardingFinish = () => {
       })
 
       await createTransaction(db, user.uid, {
-        type: 'out',
+        type: 'card',
         method: cardName,
         value: 0 - cardInitialValue,
         title: 'Saldo inicial cartão',
@@ -51,7 +51,7 @@ const OnboardingFinish = () => {
 
       await createTransaction(db, user.uid, {
         value: money,
-        type: 'in',
+        type: 'money',
         method: 'Money',
         title: 'Saldo inicial dinheiro',
       })
