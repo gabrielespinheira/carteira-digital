@@ -31,7 +31,7 @@ export const DataProvider = ({ children }) => {
         await localStorage.setItem('@app:user', JSON.stringify(user))
 
         if (user && typeof cookie.get('user_id') !== 'undefined') {
-          cookie.set('user_id', user.uid, { expires: 7 })
+          await cookie.set('user_id', user.uid, { expires: 7 })
         }
       } catch (err) {
         console.log(err)

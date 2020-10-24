@@ -1,22 +1,34 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import useSWR from 'swr'
-import cookie from 'js-cookie'
 
-import {
+/* import {
   getTotalBalance,
   getCardBalance,
   getBankBalance,
   getMoneyBalance,
-} from 'sdk'
+} from 'sdk' */
 import { Layout, Content, Box, Text, BoxGray } from 'ui'
 import { Tabs, Topbar, Card, ActionButtons } from 'components'
 import { useData } from 'hooks'
 
 export default function Account() {
-  const { data } = useSWR(`api/transactions/${cookie.get('user_id')}`)
+  const { user } = useData()
+  const [userId, setUserId] = useState(false)
+  const { data } = useSWR(userId ? `api/transactions/${userId}` : null)
 
   console.log(data)
 
+  useEffect(() => {
+    console.log(user)
+    if (user?.uid) {
+      console.log('setted')
+      setUserId(user.uid)
+    }
+  }, [user])
+
+  /* const { data, error } = useSWR(`api/transactions/${user.uid}`) */
+
+  console.log(user)
   /* const totalBalance = getTotalBalance(transactions)
   const bankBalance = getBankBalance(transactions)
   const cardBalance = getCardBalance(transactions)
