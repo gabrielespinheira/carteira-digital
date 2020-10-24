@@ -22,7 +22,11 @@ const BoxStyled = styled('div')`
 
 const Box = ({ onClick, children, ...props }) => {
   return (
-    <BoxStyled className={onClick ? 'box-link' : ''} {...props}>
+    <BoxStyled
+      className={onClick ? 'box-link' : ''}
+      onClick={onClick}
+      {...props}
+    >
       {children}
     </BoxStyled>
   )
