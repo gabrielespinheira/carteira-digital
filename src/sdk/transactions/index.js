@@ -40,7 +40,7 @@ export async function getTransactions(database, userId) {
 
 export function getTotalBalance(transactions) {
   if (transactions.length === 0) {
-    return []
+    return 0
   }
 
   return transactions
@@ -52,22 +52,29 @@ export function getTotalBalance(transactions) {
 
 export function getBankBalance(transactions) {
   if (transactions.length === 0) {
-    return []
+    return 0
   }
 
-  return transactions
-    .filter((tsx) => {
-      return tsx.type === 'bank' ? tsx : false
-    })
-    .map((tsx) => {
+  let result = transactions.filter((tsx) => {
+    return tsx.type === 'bank' ? tsx : false
+  })
+
+  if (result.length > 0) {
+    result = result.map((tsx) => {
       return parseFloat(tsx.value)
     })
-    .reduce((a, b) => a + b)
+  }
+
+  if (result.length > 0) {
+    result = result.reduce((a, b) => a + b)
+  }
+
+  return result
 }
 
 export function getCardBalance(transactions) {
   if (transactions.length === 0) {
-    return []
+    return 0
   }
 
   return transactions
@@ -82,7 +89,7 @@ export function getCardBalance(transactions) {
 
 export function getMoneyBalance(transactions) {
   if (transactions.length === 0) {
-    return []
+    return 0
   }
 
   return transactions
