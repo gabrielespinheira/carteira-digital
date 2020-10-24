@@ -49,15 +49,29 @@ export default createGlobalStyle`
     transition: all .8s;
   }
 
-  select {
-    border: 1px solid ${(props) => props.theme.colors.gray};
-    border-radius: ${(props) => props.theme.radii.md};
-    padding-left: ${(props) => props.theme.space.sm}px;
-    padding-right: ${(props) => props.theme.space.sm}px;
-    background: ${(props) => props.theme.colors.white};
-    font: 400 ${(props) => props.theme.fontSizes.sm} Poppins, sans-serif;
-    outline: none;
-    height: 60px;
+  .select {
+    position: relative;
+
+    select {
+      width: 100%;
+      border: 1px solid ${(props) => props.theme.colors.gray};
+      border-radius: ${(props) => props.theme.radii.md};
+      padding-left: ${(props) => props.theme.space.sm}px;
+      padding-right: ${(props) => props.theme.space.sm}px;
+      background: ${(props) => props.theme.colors.white};
+      font: 400 ${(props) => props.theme.fontSizes.sm} Poppins, sans-serif;
+      outline: none;
+      height: 60px;
+      -webkit-appearance: none;
+    }
+
+    svg {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
   }
 
   /* scroll bar */

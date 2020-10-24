@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { FiChevronDown } from 'react-icons/fi'
 
 import { Layout, Content, Title, Input } from 'ui'
 import { Topbar, ActionButtons } from 'components'
@@ -50,32 +51,35 @@ const FormRemove = () => {
           value={description}
         />
 
-        <select
-          onChange={(e) => {
-            setMethod(e.target.value)
-            setType(e.target[e.target.selectedIndex].attributes.type.value)
-          }}
-        >
-          <option type="money" value="money">
-            Dinheiro
-          </option>
-          {banks &&
-            banks.map((bank, key) => {
-              return (
-                <option key={key} type="bank" value={bank.name}>
-                  {bank.name}
-                </option>
-              )
-            })}
-          {cards &&
-            cards.map((card, key) => {
-              return (
-                <option key={key} type="card" value={card.name}>
-                  {card.name}
-                </option>
-              )
-            })}
-        </select>
+        <div className="select">
+          <select
+            onChange={(e) => {
+              setMethod(e.target.value)
+              setType(e.target[e.target.selectedIndex].attributes.type.value)
+            }}
+          >
+            <option type="money" value="money">
+              Dinheiro
+            </option>
+            {banks &&
+              banks.map((bank, key) => {
+                return (
+                  <option key={key} type="bank" value={bank.name}>
+                    {bank.name}
+                  </option>
+                )
+              })}
+            {cards &&
+              cards.map((card, key) => {
+                return (
+                  <option key={key} type="card" value={card.name}>
+                    {card.name}
+                  </option>
+                )
+              })}
+          </select>
+          <FiChevronDown size={22} />
+        </div>
 
         <Input
           title="R$"
