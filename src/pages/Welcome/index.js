@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Suspense } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { Layout, Button, Title, Box, Bullets } from 'ui'
-import { Header } from 'components'
+import { Header, Loading } from 'components'
 import { useData } from 'hooks'
 
 const Welcome = () => {
@@ -25,32 +25,34 @@ const Welcome = () => {
   }
 
   return (
-    <Layout justifyContent="space-between" alignItems="center">
-      <Header navHidden={true} />
+    <Suspense fallback={<Loading />}>
+      <Layout justifyContent="space-between" alignItems="center">
+        <Header navHidden={true} />
 
-      <Box>
-        <Title
-          fontSize="lg"
-          textAlign="center"
-          fontWeight="600"
-          marginBottom="xl"
-        >
-          Acompanhe seus gastos e organize sua vida financeira
-        </Title>
+        <Box>
+          <Title
+            fontSize="lg"
+            textAlign="center"
+            fontWeight="600"
+            marginBottom="xl"
+          >
+            Acompanhe seus gastos e organize sua vida financeira
+          </Title>
 
-        <Title textAlign="center">Vamos lá, são só 3 passos!</Title>
-      </Box>
+          <Title textAlign="center">Vamos lá, são só 3 passos!</Title>
+        </Box>
 
-      <Box>
-        <Button
-          title="Entrar com Google"
-          icon="FiLogIn"
-          onClick={clickSignInGoogle}
-        />
+        <Box>
+          <Button
+            title="Entrar com Google"
+            icon="FiLogIn"
+            onClick={clickSignInGoogle}
+          />
 
-        <Bullets quantity={3} active={1} hidden={true} />
-      </Box>
-    </Layout>
+          <Bullets quantity={3} active={1} hidden={true} />
+        </Box>
+      </Layout>
+    </Suspense>
   )
 }
 
