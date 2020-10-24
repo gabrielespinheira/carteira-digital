@@ -10,20 +10,16 @@
 - [x] account static screen
 - [x] history static screen
 - [x] control static screen
-- [ ] transactions sdk
-- [ ] cards sdk
-- [ ] banks sdk
-- [ ] balance hooks
-- [ ] card & bank hooks
-- [ ] dynamic pages
-- [ ] logout action
-- [ ] form add \$
-  - [ ] money
-  - [ ] banks
-- [ ] form remove \$
-  - [ ] money
-  - [ ] banks
-  - [ ] cards
+- [x] transactions sdk
+- [x] cards sdk
+- [x] banks sdk
+- [x] balance hooks
+- [x] dynamic pages
+- [x] logout action
+- [x] form add \$
+- [x] form remove \$
 - [ ] responsive
 - [ ] offline first
 - [ ] passcode launcher
+- [ ] control
+- [ ] dark mode theme
