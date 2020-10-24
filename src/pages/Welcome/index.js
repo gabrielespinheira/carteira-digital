@@ -1,9 +1,16 @@
 import React, { useEffect, Suspense } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import { Layout, Button, Title, Box, Bullets } from 'ui'
-import { Header, Loading } from 'components'
+//import { Layout, Button, Title, Box, Bullets } from 'ui'
+import { Loading } from 'components'
 import { useData } from 'hooks'
+
+const Layout = React.lazy(() => import('ui/Layout'))
+const Button = React.lazy(() => import('ui/Button'))
+const Title = React.lazy(() => import('ui/Title'))
+const Box = React.lazy(() => import('ui/Box'))
+const Bullets = React.lazy(() => import('ui/Bullets'))
+const Header = React.lazy(() => import('components/Header'))
 
 const Welcome = () => {
   const { user } = useData()
