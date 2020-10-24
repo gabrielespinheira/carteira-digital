@@ -5,7 +5,7 @@ import theme from 'styles/theme'
 
 const Card = ({ limit, flag, balance }) => {
   return (
-    <>
+    <React.Fragment>
       <div className="backgroundCard">
         <Box flexDirection="row" justifyContent="space-between">
           <Text color="white" fontSize="sm">
@@ -42,7 +42,7 @@ const Card = ({ limit, flag, balance }) => {
           background: linear-gradient(110.66deg, #6ee2f5 14.28%, #6454f0 100%);
         }
       `}</style>
-    </>
+    </React.Fragment>
   )
 }
 

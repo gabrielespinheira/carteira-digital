@@ -7,7 +7,7 @@ const Topbar = ({ clickNav, navHidden = true }) => {
   const { user } = useData()
 
   if (!user) {
-    return <></>
+    return <React.Fragment></React.Fragment>
   }
 
   return (
