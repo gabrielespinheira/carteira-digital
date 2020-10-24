@@ -19,6 +19,11 @@
 - [x] form add \$
 - [x] form remove \$
 - [ ] responsive
+- [ ] screen adjustments
+  - [ ] top margin
+  - [ ] padding on tabs
+  - [ ] select style (ios)
+  - [ ] cursor on hover buttons (desktop)
 - [ ] offline first
 - [ ] passcode launcher
 - [ ] control
