@@ -20,17 +20,6 @@ const BoxStyled = styled('div')`
   ${border}
 `
 
-const BoxStyledLink = styled('a')`
-  display: flex;
-  flex-direction: column;
-  ${space}
-  ${layout}
-  ${flexbox}
-  ${color}
-  ${typography}
-  ${border}
-`
-
 const Box = ({ onClick, children, ...props }) => {
   return (
     <BoxStyled className={onClick ? 'box-link' : ''} {...props}>
