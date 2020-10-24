@@ -11,14 +11,12 @@ import { Tabs, Topbar, Card, ActionButtons } from 'components'
 import { useData } from 'hooks'
 
 export default function Account() {
-  const { transactions } = useData()
+  const { transactions, cards } = useData()
 
   const totalBalance = getTotalBalance(transactions)
   const bankBalance = getBankBalance(transactions)
   const cardBalance = getCardBalance(transactions)
   const moneyBalance = getMoneyBalance(transactions)
-
-  const cards = []
 
   return (
     <Layout>
