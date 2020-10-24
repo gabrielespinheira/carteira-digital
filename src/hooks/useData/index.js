@@ -1,9 +1,8 @@
-import React, { createContext, useEffect, useContext, Suspense } from 'react'
+import React, { createContext, useEffect, useContext } from 'react'
 import firebase from 'services/firebase'
 import 'firebase/auth'
 
 import { useDB, usePersistedState } from 'hooks'
-import { Loading } from 'components'
 
 import { getTransactions, getCards, getBanks } from 'sdk'
 
@@ -93,23 +92,21 @@ export const DataProvider = ({ children }) => {
   }
 
   return (
-    <Suspense fallback={<Loading />}>
-      <DataContext.Provider
-        value={{
-          signed: !!user,
-          user,
-          setUser,
-          handleSignInGoogle,
-          handleLogout,
-          transactions,
-          cards,
-          banks,
-          setRehydrated,
-        }}
-      >
-        {children}
-      </DataContext.Provider>
-    </Suspense>
+    <DataContext.Provider
+      value={{
+        signed: !!user,
+        user,
+        setUser,
+        handleSignInGoogle,
+        handleLogout,
+        transactions,
+        cards,
+        banks,
+        setRehydrated,
+      }}
+    >
+      {children}
+    </DataContext.Provider>
   )
 }
 
