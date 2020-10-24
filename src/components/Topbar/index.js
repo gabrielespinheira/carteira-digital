@@ -16,8 +16,7 @@ const Topbar = ({ clickNav, navHidden = true }) => {
       flexDirection="row"
       alignItems="center"
       justifyContent="space-between"
-      paddingTop="xs"
-      paddingBottom="xs"
+      paddingBottom="xxs"
     >
       {!navHidden ? (
         <NavBack onClick={clickNav} hidden={navHidden} />

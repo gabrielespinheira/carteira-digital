@@ -20,8 +20,6 @@ const Tabs = () => {
       flexDirection="row"
       alignItems="center"
       justifyContent="space-between"
-      paddingTop="sm"
-      paddingBottom="sm"
       className="tabs"
     >
       {tabs.map((tab) => (
@@ -29,6 +27,7 @@ const Tabs = () => {
           key={tab.slug}
           onClick={() => history.push('/app/' + tab.slug)}
           className={url.includes(tab.slug) ? 'active' : ''}
+          style={{ paddingTop: theme.space.sm, paddingBottom: theme.space.sm }}
         >
           <Title
             fontSize="sm"
@@ -51,7 +50,7 @@ const Tabs = () => {
           content: '';
           position: absolute;
           left: 50%;
-          bottom: -12px;
+          bottom: 5px;
           width: 7px;
           height: 7px;
           border-radius: 50%;
