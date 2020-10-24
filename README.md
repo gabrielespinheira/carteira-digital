@@ -18,14 +18,16 @@
 - [x] logout action
 - [x] form add \$
 - [x] form remove \$
+- [x] screen adjustments
+  - [x] top margin
+  - [x] padding on tabs
+  - [x] select style (ios)
+  - [x] cursor on hover buttons (desktop)
+  - [x] input number for R\$
 - [ ] responsive
-- [ ] screen adjustments
-  - [ ] top margin
-  - [ ] padding on tabs
-  - [ ] select style (ios)
-  - [ ] cursor on hover buttons (desktop)
-  - [ ] input number for R\$
 - [ ] offline first
+  - [ ] error on forms
+  - [ ] error on login / logout
 - [ ] passcode launcher
 - [ ] control
 - [ ] dark mode theme
