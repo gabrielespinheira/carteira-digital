@@ -1,7 +1,6 @@
 import React, { useEffect, Suspense } from 'react'
 import { useHistory } from 'react-router-dom'
 
-//import { Layout, Button, Title, Box, Bullets } from 'ui'
 import { Loading } from 'components'
 import { useData } from 'hooks'
 
