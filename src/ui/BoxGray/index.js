@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Box } from 'ui'
 
-const BoxGray = ({ children, ...props }) => {
+const BoxGray = ({ onClick, children, ...props }) => {
   return (
     <Box
       bg="lightgray"
@@ -10,6 +10,7 @@ const BoxGray = ({ children, ...props }) => {
       justifyContent="center"
       p="xs"
       minHeight="134px"
+      onClick={onClick}
       {...props}
     >
       {children}

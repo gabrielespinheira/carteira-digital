@@ -17,7 +17,13 @@ export default createGlobalStyle`
     }
   }
 
+  a {
+    text-decoration: none;
+  }
 
+  .box-link {
+    cursor: pointer;
+  }
 
   p, button, input, textarea {
     font: 400 18px Poppins, sans-serif;
