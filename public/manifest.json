@@ -35,7 +35,8 @@
     {
       "src": "/icon/favicon-256x256.png",
       "sizes": "256x256",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/icon/favicon-512x512.png",
