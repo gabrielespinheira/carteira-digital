@@ -23,7 +23,7 @@ const FormRemove = () => {
       return
     }
 
-    /* createTransaction(db, user, {
+    /* createTransaction(db, user.uid, {
       type: type === 'money' ? 'money' : 'bank',
       method: type,
       value: Number(value),

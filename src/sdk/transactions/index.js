@@ -1,14 +1,14 @@
 // transactions sdk
 
-export function createTransaction(database, user, transactionData) {
-  if (!user || !database || !transactionData) {
+export function createTransaction(database, userId, transactionData) {
+  if (!userId || !database || !transactionData) {
     return false
   }
 
   try {
     database
       .collection('users')
-      .doc(user.uid)
+      .doc(userId)
       .collection('transactions')
       .add({
         ...transactionData,
@@ -21,7 +21,28 @@ export function createTransaction(database, user, transactionData) {
   }
 }
 
+export async function getTransactions(database, userId) {
+  const transactions = []
+
+  const snapshot = await database
+    .collection('users')
+    .doc(userId)
+    .collection('transactions')
+    .orderBy('time', 'desc')
+    .get()
+
+  snapshot.forEach(function (doc) {
+    transactions.push(doc.data())
+  })
+
+  return transactions
+}
+
 export function getTotalBalance(transactions) {
+  if (transactions.length === 0) {
+    return []
+  }
+
   return transactions
     .map((tsx) => {
       return parseFloat(tsx.value)
@@ -30,6 +51,10 @@ export function getTotalBalance(transactions) {
 }
 
 export function getBankBalance(transactions) {
+  if (transactions.length === 0) {
+    return []
+  }
+
   return transactions
     .filter((tsx) => {
       return tsx.type === 'bank' ? tsx : false
@@ -41,6 +66,10 @@ export function getBankBalance(transactions) {
 }
 
 export function getCardBalance(transactions) {
+  if (transactions.length === 0) {
+    return []
+  }
+
   return transactions
     .filter((tsx) => {
       return tsx.type === 'card' ? tsx : false
@@ -52,6 +81,10 @@ export function getCardBalance(transactions) {
 }
 
 export function getMoneyBalance(transactions) {
+  if (transactions.length === 0) {
+    return []
+  }
+
   return transactions
     .filter((tsx) => {
       return tsx.type === 'money' ? tsx : false

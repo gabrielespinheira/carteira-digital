@@ -23,7 +23,7 @@ const OnboardingFinish = () => {
       money,
     } = user.config
 
-    createCard(db, user, cardName, {
+    createCard(db, user.uid, cardName, {
       debit: cardDebit,
       credit: cardCredit,
       initialValue: cardInitialValue,
@@ -31,26 +31,26 @@ const OnboardingFinish = () => {
       name: cardName,
     })
 
-    createBank(db, user, bankName, {
+    createBank(db, user.uid, bankName, {
       initialValue: bankInitialBalance,
       name: bankName,
     })
 
-    createTransaction(db, user, {
+    createTransaction(db, user.uid, {
       type: 'bank',
       method: bankName,
       value: bankInitialBalance,
       title: 'Saldo inicial banco',
     })
 
-    createTransaction(db, user, {
+    createTransaction(db, user.uid, {
       type: 'card',
       method: cardName,
       value: cardInitialValue,
       title: 'Saldo inicial cartão',
     })
 
-    createTransaction(db, user, {
+    createTransaction(db, user.uid, {
       value: money,
       type: 'money',
       method: 'Money',

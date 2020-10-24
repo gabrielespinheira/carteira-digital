@@ -3,10 +3,10 @@ import { FiDollarSign } from 'react-icons/fi'
 
 import { Layout, Content, Box, Text, BoxGray } from 'ui'
 import { Topbar, Tabs, ActionButtons } from 'components'
+import { useData } from 'hooks'
 
 const History = () => {
-  /* const { transactions } = useTransactions() */
-  const transactions = []
+  const { transactions } = useData()
 
   return (
     <Layout>
