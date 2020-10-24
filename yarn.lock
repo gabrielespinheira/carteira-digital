@@ -4007,11 +4007,6 @@ depd@~1.1.2:
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
 
-dequal@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/dequal/-/dequal-2.0.2.tgz#85ca22025e3a87e65ef75a7a437b35284a7e319d"
-  integrity sha512-q9K8BlJVxK7hQYqa6XISGmBZbtQQWVXSrRrWreHC94rMt1QL/Impruc+7p2CYSYuVIUr+YCt6hjrs1kkdJRTug==
-
 des.js@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/des.js/-/des.js-1.0.1.tgz#5382142e1bdc53f85d86d53e5f4aa7deb91e0843"
@@ -6624,11 +6619,6 @@ jest@24.9.0:
   dependencies:
     import-local "^2.0.0"
     jest-cli "^24.9.0"
-
-js-cookie@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-2.2.1.tgz#69e106dc5d5806894562902aa5baec3744e9b2b8"
-  integrity sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -9349,11 +9339,6 @@ realpath-native@^1.1.0:
   dependencies:
     util.promisify "^1.0.0"
 
-recoil@^0.0.13:
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.0.13.tgz#23e6d63135c07d8defbd91aaa35dca94ec5c15a6"
-  integrity sha512-2OToaQ8GR//KsdKdaEhMi04QKStLGRpk3qjC58iBpZpUtsByZ4dUy2UJtRcYuhnVlltGZ8HNwcEQRdFOS864SQ==
-
 recursive-readdir@2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/recursive-readdir/-/recursive-readdir-2.2.2.tgz#9946fb3274e1628de6e36b2f6714953b4845094f"
@@ -10498,13 +10483,6 @@ svgo@^1.0.0, svgo@^1.2.2:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
-
-swr@^0.3.6:
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/swr/-/swr-0.3.6.tgz#b1d59439e5114fdf95bb408e1c628ff48f967aac"
-  integrity sha512-LHbX9vVQSW8Kgyr86zz2fVVKmmT13qxB61uXuUAg6NT4cGu6afzAzT2SVCGEh8pJAD2o8NTZMgclIUxIAbvk7Q==
-  dependencies:
-    dequal "2.0.2"
 
 symbol-tree@^3.2.2:
   version "3.2.4"
