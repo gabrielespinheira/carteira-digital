@@ -24,10 +24,9 @@
   - [x] select style (ios)
   - [x] cursor on hover buttons (desktop)
   - [x] input number for R\$
-- [ ] lightsail tests
+- [x] lightsail tests
 - [ ] responsive
 - [ ] offline first
-  - [ ] worker for offline queues
   - [ ] error on forms
   - [ ] error on login / logout
 - [ ] passcode launcher
