@@ -84,17 +84,12 @@ const OnboardingFinish = () => {
       <Header clickNav={goBack} navHidden={false} />
 
       <Box justifyContent="flex-start" width="100%">
+        <Title mb="lg">Bem-vind@</Title>
+
         <Title mb="lg">
           Você acaba de dar o primeiro <br />
           passo para sua organização <br />
           financeira!
-        </Title>
-
-        <Title>
-          No menu controle, você pode <br />
-          cadastrar mais contas bancárias e <br />
-          cartões, para ter controle total dos <br />
-          seus gastos.
         </Title>
       </Box>
 

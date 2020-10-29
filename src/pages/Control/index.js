@@ -22,7 +22,7 @@ const Control = () => {
       <Topbar />
       <Tabs />
 
-      <Content>
+      <Content className="tab-control">
         <Box flexDirection="column" mt="sm">
           <Box flexDirection="row">
             <BoxGray flex="1" mb="sm" mr="xxs" justifyContent="flex-start">

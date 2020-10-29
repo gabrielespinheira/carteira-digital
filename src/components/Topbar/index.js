@@ -21,7 +21,7 @@ const Topbar = ({ clickNav, navHidden = true }) => {
       {!navHidden ? (
         <NavBack onClick={clickNav} hidden={navHidden} />
       ) : (
-        <Title fontSize="lg">{user?.name}</Title>
+        <Title fontSize="md">{user?.name}</Title>
       )}
       {user.avatar && (
         <Image

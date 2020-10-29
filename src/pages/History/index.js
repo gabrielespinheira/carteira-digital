@@ -13,7 +13,7 @@ const History = () => {
       <Topbar />
       <Tabs />
 
-      <Content mt="sm">
+      <Content mt="sm" className="tab-history">
         <Box flexDirection="column">
           {transactions &&
             transactions.map((entry, key) => (

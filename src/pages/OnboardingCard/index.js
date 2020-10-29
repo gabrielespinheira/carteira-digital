@@ -82,7 +82,7 @@ const OnboardingCard = () => {
 
         <Input
           type="number"
-          title="Saldo inicial"
+          title="Saldo atual"
           onChange={(e) => setCardInitialValue(e.target.value)}
           value={cardInitialValue}
         />

@@ -45,7 +45,7 @@ const OnboardingBank = () => {
         <Input
           type="number"
           step=".01"
-          title="Saldo inicial"
+          title="Saldo atual"
           onChange={(e) => setBankInitialBalance(e.target.value)}
           value={bankInitialBalance}
         />

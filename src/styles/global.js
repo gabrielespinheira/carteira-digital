@@ -99,4 +99,52 @@ export default createGlobalStyle`
       background: #999;
     }
   }
+
+  /* responsive */
+  @media (max-width: 380px) {
+    .tab-control {
+          > div > div {
+          flex-direction: column;
+
+          & > div {
+            min-height: initial;
+            margin-left: 0;
+            margin-right: 0;
+          }
+
+          p {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+  @media (max-height: 815px) {
+    .tab-account {
+      .total-balance {
+        min-height: 100px;
+
+        p {
+          font-size: 22px;
+        }
+
+        p + p {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+
+  @media (max-height: 780px) {
+    .tab-account {
+      .card-display .backgroundCard {
+        padding: 16px;
+        min-height: 200px;
+      }
+
+      .bank-balance, .card-balance {
+        min-height: 100px;
+      }
+    }
+  }
 `
