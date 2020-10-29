@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { Layout, Button, Title, Box, Bullets, Input } from 'ui'
@@ -9,8 +9,7 @@ const OnboardingCard = () => {
   const history = useHistory()
   const [cardName, setCardName] = useState('')
   const [cardLimit, setCardLimit] = useState('')
-  const [cardCredit, setCardCredit] = useState(false)
-  const [cardDebit, setCardDebit] = useState(false)
+  const [cardType, setCardType] = useState('')
   const [cardInitialValue, setCardInitialValue] = useState('')
   const [onboarding, setOnboarding] = usePersistedState('@app:onboarding', {})
 
@@ -27,8 +26,7 @@ const OnboardingCard = () => {
       ...onboarding,
       cardName,
       cardLimit,
-      cardCredit,
-      cardDebit,
+      cardType,
       cardInitialValue,
     })
     history.push('/onboarding/money')
@@ -53,22 +51,24 @@ const OnboardingCard = () => {
 
         <Box flexDirection="row" flexWrap="nowrap" mb="sm">
           <Input
-            type="checkbox"
+            type="radio"
+            name="type"
             title="Crédito"
             mr="xxs"
             flex="1"
             minWidth="initial"
-            onChange={(e) => setCardCredit(!cardCredit)}
-            checked={cardCredit ? 'checked' : ''}
+            onChange={(e) => setCardType('credit')}
+            checked={cardType === 'credit' ? 'checked' : ''}
           />
           <Input
-            type="checkbox"
+            type="radio"
+            name="type"
             title="Débito"
             ml="xxs"
             flex="1"
             minWidth="initial"
-            onChange={(e) => setCardDebit(!cardDebit)}
-            checked={cardDebit ? 'checked' : ''}
+            onChange={(e) => setCardType('debit')}
+            checked={cardType === 'debit' ? 'checked' : ''}
           />
         </Box>
 

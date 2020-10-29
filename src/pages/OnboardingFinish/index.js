@@ -21,8 +21,7 @@ const OnboardingFinish = () => {
       const {
         bankInitialBalance,
         bankName,
-        cardCredit,
-        cardDebit,
+        cardType,
         cardInitialValue,
         cardLimit,
         cardName,
@@ -30,30 +29,36 @@ const OnboardingFinish = () => {
       } = onboarding
 
       await createCard(db, user.uid, cardName, {
-        debit: cardDebit,
-        credit: cardCredit,
+        type: cardType,
         initialValue: cardInitialValue,
         limit: cardLimit,
-        name: cardName,
+        name: cardName.trim(),
       })
 
       await createBank(db, user.uid, bankName, {
         initialValue: bankInitialBalance,
-        name: bankName,
+        name: bankName.trim(),
       })
 
       await createTransaction(db, user.uid, {
         type: 'card',
         method: cardName,
-        value: 0 - cardInitialValue,
+        value: cardType === 'credit' ? 0 - cardInitialValue : cardInitialValue,
         title: 'Saldo inicial cartão',
       })
 
       await createTransaction(db, user.uid, {
-        value: money,
         type: 'money',
         method: 'Money',
+        value: money,
         title: 'Saldo inicial dinheiro',
+      })
+
+      await createTransaction(db, user.uid, {
+        type: 'bank',
+        method: bankName,
+        value: bankInitialBalance,
+        title: 'Saldo inicial banco',
       })
 
       // update onboarding status

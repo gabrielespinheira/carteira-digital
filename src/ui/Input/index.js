@@ -98,11 +98,11 @@ const InputElement = ({ title, type, ...props }) => {
   )
 }
 
-const Input = ({ title, type, ...props }) => {
-  if (type === 'checkbox') {
+const Input = ({ title, name, type, ...props }) => {
+  if (type === 'checkbox' || type === 'radio') {
     return (
       <LabelStyled className="checkbox" {...props}>
-        <InputElement title={title} type={type} />
+        <InputElement name={name} title={title} type={type} />
         <p>{title}</p>
         <span className="checkmark">
           <FiCircle className="normal" size={30} />
@@ -112,7 +112,7 @@ const Input = ({ title, type, ...props }) => {
     )
   }
 
-  return <InputElement title={title} type={type} {...props} />
+  return <InputElement title={title} name={name} type={type} {...props} />
 }
 
 export default Input
