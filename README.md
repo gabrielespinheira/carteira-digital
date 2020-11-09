@@ -25,10 +25,14 @@
   - [x] cursor on hover buttons (desktop)
   - [x] input number for R\$
 - [x] lightsail tests
-- [ ] responsive
+- [x] responsive
+- [x] soon
+- [ ] fix
+  - [x] transactions totals
+  - [ ] errors messages on submit forms
 - [ ] offline first
   - [ ] error on forms
   - [ ] error on login / logout
 - [ ] passcode launcher
-- [ ] control
+- [ ] push messages
 - [ ] dark mode theme

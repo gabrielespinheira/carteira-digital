@@ -13,7 +13,7 @@ const FormAdd = () => {
   const { user, cards, banks, setRehydrated } = useData()
 
   const [description, setDescription] = useState('')
-  const [method, setMethod] = useState('money')
+  const [method, setMethod] = useState('Money')
   const [value, setValue] = useState('')
   const [type, setType] = useState('money')
 
@@ -25,8 +25,8 @@ const FormAdd = () => {
     const add = await createTransaction(db, user.uid, {
       type,
       method,
-      value: Number(value),
-      title: description ? description : 'Entrada',
+      value: Number(value.trim()),
+      title: description ? description.trim() : 'Entrada',
     })
 
     if (add) {

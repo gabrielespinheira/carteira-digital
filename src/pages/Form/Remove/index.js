@@ -13,9 +13,9 @@ const FormRemove = () => {
   const { user, banks, cards, setRehydrated } = useData()
 
   const [description, setDescription] = useState('')
-  const [method, setMethod] = useState('money')
+  const [method, setMethod] = useState('Money')
   const [value, setValue] = useState('')
-  const [type, setType] = useState('')
+  const [type, setType] = useState('money')
 
   async function handleSubmit() {
     if (!description || !value || !method) {
@@ -25,8 +25,8 @@ const FormRemove = () => {
     const remove = await createTransaction(db, user.uid, {
       type,
       method,
-      value: Number(0 - value),
-      title: description ? description : 'Entrada',
+      value: Number(0 - value.trim()),
+      title: description ? description.trim() : 'Entrada',
     })
 
     if (remove) {
