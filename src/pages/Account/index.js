@@ -20,10 +20,18 @@ export default function Account() {
   const moneyBalance = getMoneyBalance(transactions)
 
   useOneSignalSetup(async () => {
-    const user_email = await JSON.parse(localStorage.getItem('@app:user')).email
-    console.log(OneSignal)
     await OneSignal.registerForPushNotifications()
-    OneSignal.setEmail(user_email)
+
+    const currentState = await OneSignal.getNotificationPermission()
+    const user_id = await JSON.parse(localStorage.getItem('@app:user')).uid
+
+    console.log(OneSignal)
+    console.log(currentState)
+
+    OneSignal.setExternalUserId(user_id)
+
+    const externalUserId = await OneSignal.getExternalUserId()
+    console.log(externalUserId)
   })
 
   return (
