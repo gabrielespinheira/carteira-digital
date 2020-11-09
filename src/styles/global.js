@@ -81,20 +81,20 @@ export default createGlobalStyle`
   }
 
   /* toastify */
-  .Toastify__toast {
-    border-radius: 7px;
+  .Toastify__toast-container {
     padding: 7px;
-    min-height: initial;
-    font: 400 15px Poppins, sans-serif;
 
     .Toastify__toast {
-      margin-bottom: 5px;
-    }
+    border-radius: 7px;
+    min-height: initial;
+    margin-bottom: 5px;
+    font: 400 15px Poppins, sans-serif;
 
     .Toastify__toast-body {
       line-height: 1.6;
       margin: 4px;
     }
+  }
   }
 
   /* scroll bar */
