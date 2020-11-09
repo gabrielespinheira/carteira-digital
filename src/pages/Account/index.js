@@ -1,4 +1,5 @@
 import React from 'react'
+import OneSignal from 'services/onesignal'
 
 import {
   getTotalBalance,
@@ -17,6 +18,8 @@ export default function Account() {
   const bankBalance = getBankBalance(transactions)
   const cardBalance = getCardBalance(transactions)
   const moneyBalance = getMoneyBalance(transactions)
+
+  console.log('notifications:', OneSignal.notificationPermission)
 
   return (
     <Layout>
