@@ -83,8 +83,13 @@ export default createGlobalStyle`
   /* toastify */
   .Toastify__toast {
     border-radius: 7px;
+    padding: 7px;
     min-height: initial;
     font: 400 15px Poppins, sans-serif;
+
+    .Toastify__toast {
+      margin-bottom: 5px;
+    }
 
     .Toastify__toast-body {
       line-height: 1.6;
