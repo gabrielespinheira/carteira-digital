@@ -19,9 +19,11 @@ export default function Account() {
   const cardBalance = getCardBalance(transactions)
   const moneyBalance = getMoneyBalance(transactions)
 
-  useOneSignalSetup(() => {
+  useOneSignalSetup(async () => {
+    const user_email = await JSON.parse(localStorage.getItem('@app:user')).email
     console.log(OneSignal)
-    console.log('notifications:', OneSignal.notificationPermission)
+    await OneSignal.registerForPushNotifications()
+    OneSignal.setEmail(user_email)
   })
 
   return (
