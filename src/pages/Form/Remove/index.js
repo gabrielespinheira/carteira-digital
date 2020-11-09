@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { FiChevronDown } from 'react-icons/fi'
+import { toast } from 'react-toastify'
 
 import { Layout, Content, Title, Input } from 'ui'
 import { Topbar, ActionButtons } from 'components'
@@ -19,6 +20,12 @@ const FormRemove = () => {
 
   async function handleSubmit() {
     if (!description || !value || !method) {
+      toast.error('Preencha todos os campos')
+      return
+    }
+
+    if (Number(value) < 0) {
+      toast.error('Valor inválido')
       return
     }
 

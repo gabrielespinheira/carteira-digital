@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 import { Layout, Button, Title, Box, Bullets, Input } from 'ui'
 import { Header } from 'components'
@@ -16,6 +17,7 @@ const OnboardingMoney = () => {
 
   async function goNext() {
     if (!money) {
+      toast.error('Preencha todos os campos')
       return
     }
 

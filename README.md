@@ -27,9 +27,9 @@
 - [x] lightsail tests
 - [x] responsive
 - [x] soon
-- [ ] fix
+- [x] fix
   - [x] transactions totals
-  - [ ] errors messages on submit forms
+  - [x] errors messages on submit forms
 - [ ] offline first
   - [ ] error on forms
   - [ ] error on login / logout

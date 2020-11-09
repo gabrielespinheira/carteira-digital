@@ -80,6 +80,18 @@ export default createGlobalStyle`
     }
   }
 
+  /* toastify */
+  .Toastify__toast {
+    border-radius: 7px;
+    min-height: initial;
+    font: 400 15px Poppins, sans-serif;
+
+    .Toastify__toast-body {
+      line-height: 1.6;
+      margin: 4px;
+    }
+  }
+
   /* scroll bar */
   @media (min-width: 1024px) {
     ::-webkit-scrollbar {

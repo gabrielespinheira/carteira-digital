@@ -1,6 +1,8 @@
 import React, { Suspense } from 'react'
 import { ThemeProvider } from 'styled-components'
 import WebFont from 'webfontloader'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import Routes from './routes'
 import { DataProvider } from 'hooks/useData'
@@ -25,6 +27,17 @@ function App() {
             <Routes />
 
             <GlobalStyle />
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
           </ThemeProvider>
         </DataProvider>
       </DatabaseProvider>
