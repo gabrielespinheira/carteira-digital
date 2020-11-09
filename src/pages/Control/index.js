@@ -17,6 +17,10 @@ const Control = () => {
     })
   }
 
+  function goSoon() {
+    history.push('/app/soon')
+  }
+
   return (
     <Layout>
       <Topbar />
@@ -25,13 +29,25 @@ const Control = () => {
       <Content className="tab-control">
         <Box flexDirection="column" mt="sm">
           <Box flexDirection="row">
-            <BoxGray flex="1" mb="sm" mr="xxs" justifyContent="flex-start">
+            <BoxGray
+              flex="1"
+              mb="sm"
+              mr="xxs"
+              justifyContent="flex-start"
+              onClick={goSoon}
+            >
               <Text fontSize="lg" fontWeight="600">
                 Contas bancárias
               </Text>
             </BoxGray>
 
-            <BoxGray flex="1" mb="sm" ml="xxs" justifyContent="flex-start">
+            <BoxGray
+              flex="1"
+              mb="sm"
+              ml="xxs"
+              justifyContent="flex-start"
+              onClick={goSoon}
+            >
               <Text fontSize="lg" fontWeight="600">
                 Cartões
               </Text>
@@ -39,13 +55,25 @@ const Control = () => {
           </Box>
 
           <Box flexDirection="row">
-            <BoxGray flex="1" mb="sm" mr="xxs" justifyContent="flex-start">
+            <BoxGray
+              flex="1"
+              mb="sm"
+              mr="xxs"
+              justifyContent="flex-start"
+              onClick={goSoon}
+            >
               <Text fontSize="lg" fontWeight="600">
                 Gastos mensais
               </Text>
             </BoxGray>
 
-            <BoxGray flex="1" mb="sm" ml="xxs" justifyContent="flex-start">
+            <BoxGray
+              flex="1"
+              mb="sm"
+              ml="xxs"
+              justifyContent="flex-start"
+              onClick={goSoon}
+            >
               <Text fontSize="lg" fontWeight="600">
                 Categorias
               </Text>
