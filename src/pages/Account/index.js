@@ -1,6 +1,5 @@
 import React from 'react'
-import OneSignal from 'services/onesignal'
-import { useOneSignalSetup } from 'react-onesignal'
+import OneSignal, { useOneSignalSetup } from 'react-onesignal'
 
 import {
   getTotalBalance,
