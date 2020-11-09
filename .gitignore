@@ -2,6 +2,7 @@
 
 # project
 /src/services/firebase/config.js
+/src/services/onesignal/config.js
 
 # dependencies
 /node_modules

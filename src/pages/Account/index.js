@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import {
   getTotalBalance,
@@ -17,6 +17,12 @@ export default function Account() {
   const bankBalance = getBankBalance(transactions)
   const cardBalance = getCardBalance(transactions)
   const moneyBalance = getMoneyBalance(transactions)
+
+  async function onesignal() {
+    const playerId = await OneSignal.getPlayerId()
+
+    console.log(playerId)
+  }
 
   return (
     <Layout>
