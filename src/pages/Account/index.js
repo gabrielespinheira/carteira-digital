@@ -26,17 +26,10 @@ export default function Account() {
     const user_id = await JSON.parse(localStorage.getItem('@app:user')).uid
     const user_email = await JSON.parse(localStorage.getItem('@app:user')).email
 
-    console.log(OneSignal)
     console.log(currentState)
 
     OneSignal.setExternalUserId(user_id)
     OneSignal.setEmail(user_email)
-
-    const externalUserId = await OneSignal.getExternalUserId()
-    console.log(externalUserId)
-
-    const emailId = await OneSignal.getEmailId()
-    console.log(emailId)
   })
 
   return (
