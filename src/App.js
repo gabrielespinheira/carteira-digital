@@ -8,7 +8,6 @@ import Routes from './routes'
 import { DataProvider } from 'hooks/useData'
 import { DatabaseProvider } from 'hooks/useDB'
 import { Loading } from 'components'
-import OneSignal from 'services/onesignal'
 
 import GlobalStyle from 'styles/global'
 import theme from 'styles/theme'

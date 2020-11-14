@@ -11,16 +11,13 @@ const DataContext = createContext(null)
 export const DataProvider = ({ children }) => {
   const { db } = useDB()
   const [rehydrate, setRehydrated] = usePersistedState(
-    '@app:rehydrate',
+    'rehydrate',
     new Date().getTime()
   )
-  const [user, setUser] = usePersistedState('@app:user', {})
-  const [transactions, setTransactions] = usePersistedState(
-    '@app:transactions',
-    []
-  )
-  const [cards, setCards] = usePersistedState('@app:cards', [])
-  const [banks, setBanks] = usePersistedState('@app:banks', [])
+  const [user, setUser] = usePersistedState('user', {})
+  const [transactions, setTransactions] = usePersistedState('transactions', [])
+  const [cards, setCards] = usePersistedState('cards', [])
+  const [banks, setBanks] = usePersistedState('banks', [])
 
   const auth = firebase.auth()
   const provider = new firebase.auth.GoogleAuthProvider()
