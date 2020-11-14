@@ -29,6 +29,11 @@ const FormRemove = () => {
       return
     }
 
+    if (!navigator.onLine) {
+      toast.error('Você está offline')
+      return
+    }
+
     const remove = await createTransaction(db, user.uid, {
       type,
       method,

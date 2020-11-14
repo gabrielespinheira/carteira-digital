@@ -29,6 +29,11 @@ const FormAdd = () => {
       return
     }
 
+    if (!navigator.onLine) {
+      toast.error('Você está offline')
+      return
+    }
+
     const add = await createTransaction(db, user.uid, {
       type,
       method,

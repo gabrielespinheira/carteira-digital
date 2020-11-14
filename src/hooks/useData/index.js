@@ -25,6 +25,12 @@ export const DataProvider = ({ children }) => {
   // load transactions, cards and banks
   useEffect(() => {
     console.log('rehydrated')
+
+    if (!navigator.onLine) {
+      console.log('offline')
+      return
+    }
+
     if (user?.uid) {
       async function loadTransactions() {
         const responseTransactions = await getTransactions(db, user.uid)
