@@ -20,7 +20,7 @@ export default function Account() {
   const cardBalance = getCardBalance(transactions)
   const moneyBalance = getMoneyBalance(transactions)
 
-  useEffect(() => {
+  /* useEffect(() => {
     ;(async function loadOnesignal() {
       console.log('loaded useEffect')
       await OneSignal.initialize(oneSignalConfig.appId)
@@ -38,7 +38,7 @@ export default function Account() {
       OneSignal.setEmail(user_email)
     })()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [OneSignal])
+  }, [OneSignal]) */
 
   useOneSignalSetup(async () => {
     console.log('loaded onesignal hook')
