@@ -1,38 +1,21 @@
-## TODOLIST
+<h1 align="center">
+  :credit_card: Carteira Digital
+</h1>
 
-- [x] boot react project
-- [x] splash screen
-- [x] add to home
-- [x] initial hooks
-- [x] ui base elements
-- [x] theme css
-- [x] onboarding screen
-- [x] account static screen
-- [x] history static screen
-- [x] control static screen
-- [x] transactions sdk
-- [x] cards sdk
-- [x] banks sdk
-- [x] balance hooks
-- [x] dynamic pages
-- [x] logout action
-- [x] form add \$
-- [x] form remove \$
-- [x] screen adjustments
-  - [x] top margin
-  - [x] padding on tabs
-  - [x] select style (ios)
-  - [x] cursor on hover buttons (desktop)
-  - [x] input number for R\$
-- [x] lightsail tests
-- [x] responsive
-- [x] soon
-- [x] fix
-  - [x] transactions totals
-  - [x] errors messages on submit forms
-- [ ] offline first
-  - [ ] error on forms
-  - [ ] error on login / logout
-- [ ] passcode launcher
-- [ ] push messages
-- [ ] dark mode theme
+<p align="center">
+  Carteira Digital é uma aplicação com o objetivo de facilitar o controle das finanças pessoais e simplificar a forma como os usuários lidam com o dinheiro.
+</p>
+
+Aplicação desenvolvida durante o estudo do TCC para Ciência da Computação. 
+
+## Tecnologias
+- [x] HTML5
+- [x] CSS3
+- [x] Javascript
+- [x] [React](https://pt-br.reactjs.org/)
+- [x] [Firebase - Firestore Realtime Database](https://firebase.google.com)
+- [x] [Vercel](https://vercel.com/)
+
+## Links
+- [x] [Link da Aplicação](https://carteira-digital.vercel.app)
+- [x] [Layout da Aplicação](https://www.figma.com/file/3xhiVFzRnkh630aSoG0Tir/Carteira-Digital?node-id=0%3A1)
