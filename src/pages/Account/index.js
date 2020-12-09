@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import OneSignal, { useOneSignalSetup } from 'react-onesignal'
 
 import {
@@ -10,7 +10,6 @@ import {
 import { Layout, Content, Box, Text, BoxGray } from 'ui'
 import { Tabs, Topbar, Card, ActionButtons } from 'components'
 import { useData } from 'hooks'
-import oneSignalConfig from 'services/onesignal/config'
 
 export default function Account() {
   const { transactions, cards } = useData()
@@ -19,26 +18,6 @@ export default function Account() {
   const bankBalance = getBankBalance(transactions)
   const cardBalance = getCardBalance(transactions)
   const moneyBalance = getMoneyBalance(transactions)
-
-  /* useEffect(() => {
-    ;(async function loadOnesignal() {
-      console.log('loaded useEffect')
-      await OneSignal.initialize(oneSignalConfig.appId)
-
-      await OneSignal.registerForPushNotifications()
-
-      const currentState = await OneSignal.getNotificationPermission()
-      const user_id = await JSON.parse(localStorage.getItem('@app:user')).uid
-      const user_email = await JSON.parse(localStorage.getItem('@app:user'))
-        .email
-
-      console.log(currentState)
-
-      OneSignal.setExternalUserId(user_id)
-      OneSignal.setEmail(user_email)
-    })()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [OneSignal]) */
 
   useOneSignalSetup(async () => {
     console.log('loaded onesignal hook')
