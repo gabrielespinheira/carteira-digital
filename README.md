@@ -6,8 +6,6 @@
   Carteira Digital é uma aplicação com o objetivo de facilitar o controle das finanças pessoais e simplificar a forma como os usuários lidam com o dinheiro.
 </p>
 
-Aplicação desenvolvida durante o estudo do TCC para Ciência da Computação. 
-
 ## Tecnologias
 - [x] HTML5
 - [x] CSS3
@@ -19,3 +17,5 @@ Aplicação desenvolvida durante o estudo do TCC para Ciência da Computação.
 ## Links
 - [x] [Link da Aplicação](https://carteira-digital.vercel.app)
 - [x] [Layout da Aplicação](https://www.figma.com/file/3xhiVFzRnkh630aSoG0Tir/Carteira-Digital?node-id=0%3A1)
+
+\* Aplicação desenvolvida durante o estudo do TCC para Ciência da Computação.
